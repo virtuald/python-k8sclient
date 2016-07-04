@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1ISCSIVolumeSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1ISCSIVolumeSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -151,7 +153,7 @@ class V1ISCSIVolumeSource(object):
     def fs_type(self):
         """
         Gets the fs_type of this V1ISCSIVolumeSource.
-        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#iscsi
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#iscsi
 
         :return: The fs_type of this V1ISCSIVolumeSource.
         :rtype: str
@@ -162,7 +164,7 @@ class V1ISCSIVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1ISCSIVolumeSource.
-        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#iscsi
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#iscsi
 
         :param fs_type: The fs_type of this V1ISCSIVolumeSource.
         :type: str
@@ -193,7 +195,7 @@ class V1ISCSIVolumeSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -206,6 +208,12 @@ class V1ISCSIVolumeSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -213,7 +221,7 @@ class V1ISCSIVolumeSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -222,3 +230,16 @@ class V1ISCSIVolumeSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

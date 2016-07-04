@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1ServicePort(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1ServicePort - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -126,7 +128,7 @@ class V1ServicePort(object):
     def target_port(self):
         """
         Gets the target_port of this V1ServicePort.
-        Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#defining-a-service
+        Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://releases.k8s.io/release-1.3/docs/user-guide/services.md#defining-a-service
 
         :return: The target_port of this V1ServicePort.
         :rtype: str
@@ -137,7 +139,7 @@ class V1ServicePort(object):
     def target_port(self, target_port):
         """
         Sets the target_port of this V1ServicePort.
-        Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#defining-a-service
+        Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: http://releases.k8s.io/release-1.3/docs/user-guide/services.md#defining-a-service
 
         :param target_port: The target_port of this V1ServicePort.
         :type: str
@@ -148,7 +150,7 @@ class V1ServicePort(object):
     def node_port(self):
         """
         Gets the node_port of this V1ServicePort.
-        The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#type--nodeport
+        The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://releases.k8s.io/release-1.3/docs/user-guide/services.md#type--nodeport
 
         :return: The node_port of this V1ServicePort.
         :rtype: int
@@ -159,7 +161,7 @@ class V1ServicePort(object):
     def node_port(self, node_port):
         """
         Sets the node_port of this V1ServicePort.
-        The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#type--nodeport
+        The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: http://releases.k8s.io/release-1.3/docs/user-guide/services.md#type--nodeport
 
         :param node_port: The node_port of this V1ServicePort.
         :type: int
@@ -168,7 +170,7 @@ class V1ServicePort(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -181,6 +183,12 @@ class V1ServicePort(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -188,7 +196,7 @@ class V1ServicePort(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -197,3 +205,16 @@ class V1ServicePort(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

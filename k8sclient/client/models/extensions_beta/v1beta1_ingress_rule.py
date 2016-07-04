@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1beta1IngressRule(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1beta1IngressRule - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -51,7 +53,7 @@ class V1beta1IngressRule(object):
     def host(self):
         """
         Gets the host of this V1beta1IngressRule.
-        Host is the fully qualified domain name of a network host, as defined by RFC 3986. Note the following deviations from the \"host\" part of the URI as defined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the\n	  IP in the Spec of the parent Ingress.\n2. The `:` delimiter is not respected because ports are not allowed.\n	  Currently the port of an Ingress is implicitly :80 for http and\n	  :443 for https.\nBoth these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
+        Host is the fully qualified domain name of a network host, as defined by RFC 3986. Note the following deviations from the \"host\" part of the URI as defined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the\n\t  IP in the Spec of the parent Ingress.\n2. The `:` delimiter is not respected because ports are not allowed.\n\t  Currently the port of an Ingress is implicitly :80 for http and\n\t  :443 for https.\nBoth these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 
         :return: The host of this V1beta1IngressRule.
         :rtype: str
@@ -62,7 +64,7 @@ class V1beta1IngressRule(object):
     def host(self, host):
         """
         Sets the host of this V1beta1IngressRule.
-        Host is the fully qualified domain name of a network host, as defined by RFC 3986. Note the following deviations from the \"host\" part of the URI as defined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the\n	  IP in the Spec of the parent Ingress.\n2. The `:` delimiter is not respected because ports are not allowed.\n	  Currently the port of an Ingress is implicitly :80 for http and\n	  :443 for https.\nBoth these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
+        Host is the fully qualified domain name of a network host, as defined by RFC 3986. Note the following deviations from the \"host\" part of the URI as defined in the RFC: 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the\n\t  IP in the Spec of the parent Ingress.\n2. The `:` delimiter is not respected because ports are not allowed.\n\t  Currently the port of an Ingress is implicitly :80 for http and\n\t  :443 for https.\nBoth these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
 
         :param host: The host of this V1beta1IngressRule.
         :type: str
@@ -93,7 +95,7 @@ class V1beta1IngressRule(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -106,6 +108,12 @@ class V1beta1IngressRule(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -113,7 +121,7 @@ class V1beta1IngressRule(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -122,3 +130,16 @@ class V1beta1IngressRule(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

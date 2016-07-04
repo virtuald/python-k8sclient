@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1VolumeMount(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1VolumeMount - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -37,18 +39,21 @@ class V1VolumeMount(object):
         self.swagger_types = {
             'name': 'str',
             'read_only': 'bool',
-            'mount_path': 'str'
+            'mount_path': 'str',
+            'sub_path': 'str'
         }
 
         self.attribute_map = {
             'name': 'name',
             'read_only': 'readOnly',
-            'mount_path': 'mountPath'
+            'mount_path': 'mountPath',
+            'sub_path': 'subPath'
         }
 
         self._name = None
         self._read_only = None
         self._mount_path = None
+        self._sub_path = None
 
     @property
     def name(self):
@@ -116,9 +121,31 @@ class V1VolumeMount(object):
         """
         self._mount_path = mount_path
 
+    @property
+    def sub_path(self):
+        """
+        Gets the sub_path of this V1VolumeMount.
+        Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).
+
+        :return: The sub_path of this V1VolumeMount.
+        :rtype: str
+        """
+        return self._sub_path
+
+    @sub_path.setter
+    def sub_path(self, sub_path):
+        """
+        Sets the sub_path of this V1VolumeMount.
+        Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).
+
+        :param sub_path: The sub_path of this V1VolumeMount.
+        :type: str
+        """
+        self._sub_path = sub_path
+
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +158,12 @@ class V1VolumeMount(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +171,7 @@ class V1VolumeMount(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +180,16 @@ class V1VolumeMount(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

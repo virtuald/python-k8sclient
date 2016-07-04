@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1DownwardAPIVolumeFile(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1DownwardAPIVolumeFile - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -36,16 +38,19 @@ class V1DownwardAPIVolumeFile(object):
         """
         self.swagger_types = {
             'path': 'str',
-            'field_ref': 'V1ObjectFieldSelector'
+            'field_ref': 'V1ObjectFieldSelector',
+            'resource_field_ref': 'V1ResourceFieldSelector'
         }
 
         self.attribute_map = {
             'path': 'path',
-            'field_ref': 'fieldRef'
+            'field_ref': 'fieldRef',
+            'resource_field_ref': 'resourceFieldRef'
         }
 
         self._path = None
         self._field_ref = None
+        self._resource_field_ref = None
 
     @property
     def path(self):
@@ -91,9 +96,31 @@ class V1DownwardAPIVolumeFile(object):
         """
         self._field_ref = field_ref
 
+    @property
+    def resource_field_ref(self):
+        """
+        Gets the resource_field_ref of this V1DownwardAPIVolumeFile.
+        Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+
+        :return: The resource_field_ref of this V1DownwardAPIVolumeFile.
+        :rtype: V1ResourceFieldSelector
+        """
+        return self._resource_field_ref
+
+    @resource_field_ref.setter
+    def resource_field_ref(self, resource_field_ref):
+        """
+        Sets the resource_field_ref of this V1DownwardAPIVolumeFile.
+        Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+
+        :param resource_field_ref: The resource_field_ref of this V1DownwardAPIVolumeFile.
+        :type: V1ResourceFieldSelector
+        """
+        self._resource_field_ref = resource_field_ref
+
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -106,6 +133,12 @@ class V1DownwardAPIVolumeFile(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -113,7 +146,7 @@ class V1DownwardAPIVolumeFile(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -122,3 +155,16 @@ class V1DownwardAPIVolumeFile(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

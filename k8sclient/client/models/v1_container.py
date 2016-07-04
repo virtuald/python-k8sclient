@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1Container(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1Container - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -121,7 +123,7 @@ class V1Container(object):
     def image(self):
         """
         Gets the image of this V1Container.
-        Docker image name. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
+        Docker image name. More info: http://releases.k8s.io/release-1.3/docs/user-guide/images.md
 
         :return: The image of this V1Container.
         :rtype: str
@@ -132,7 +134,7 @@ class V1Container(object):
     def image(self, image):
         """
         Sets the image of this V1Container.
-        Docker image name. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
+        Docker image name. More info: http://releases.k8s.io/release-1.3/docs/user-guide/images.md
 
         :param image: The image of this V1Container.
         :type: str
@@ -143,7 +145,7 @@ class V1Container(object):
     def command(self):
         """
         Gets the command of this V1Container.
-        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
+        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/containers.md#containers-and-commands
 
         :return: The command of this V1Container.
         :rtype: list[str]
@@ -154,7 +156,7 @@ class V1Container(object):
     def command(self, command):
         """
         Sets the command of this V1Container.
-        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
+        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/containers.md#containers-and-commands
 
         :param command: The command of this V1Container.
         :type: list[str]
@@ -165,7 +167,7 @@ class V1Container(object):
     def args(self):
         """
         Gets the args of this V1Container.
-        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
+        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/containers.md#containers-and-commands
 
         :return: The args of this V1Container.
         :rtype: list[str]
@@ -176,7 +178,7 @@ class V1Container(object):
     def args(self, args):
         """
         Sets the args of this V1Container.
-        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
+        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/containers.md#containers-and-commands
 
         :param args: The args of this V1Container.
         :type: list[str]
@@ -253,7 +255,7 @@ class V1Container(object):
     def resources(self):
         """
         Gets the resources of this V1Container.
-        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#resources
+        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#resources
 
         :return: The resources of this V1Container.
         :rtype: V1ResourceRequirements
@@ -264,7 +266,7 @@ class V1Container(object):
     def resources(self, resources):
         """
         Sets the resources of this V1Container.
-        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#resources
+        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#resources
 
         :param resources: The resources of this V1Container.
         :type: V1ResourceRequirements
@@ -275,7 +277,7 @@ class V1Container(object):
     def volume_mounts(self):
         """
         Gets the volume_mounts of this V1Container.
-        Pod volumes to mount into the container's filesyste. Cannot be updated.
+        Pod volumes to mount into the container's filesystem. Cannot be updated.
 
         :return: The volume_mounts of this V1Container.
         :rtype: list[V1VolumeMount]
@@ -286,7 +288,7 @@ class V1Container(object):
     def volume_mounts(self, volume_mounts):
         """
         Sets the volume_mounts of this V1Container.
-        Pod volumes to mount into the container's filesyste. Cannot be updated.
+        Pod volumes to mount into the container's filesystem. Cannot be updated.
 
         :param volume_mounts: The volume_mounts of this V1Container.
         :type: list[V1VolumeMount]
@@ -297,7 +299,7 @@ class V1Container(object):
     def liveness_probe(self):
         """
         Gets the liveness_probe of this V1Container.
-        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
+        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/pod-states.md#container-probes
 
         :return: The liveness_probe of this V1Container.
         :rtype: V1Probe
@@ -308,7 +310,7 @@ class V1Container(object):
     def liveness_probe(self, liveness_probe):
         """
         Sets the liveness_probe of this V1Container.
-        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
+        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/pod-states.md#container-probes
 
         :param liveness_probe: The liveness_probe of this V1Container.
         :type: V1Probe
@@ -319,7 +321,7 @@ class V1Container(object):
     def readiness_probe(self):
         """
         Gets the readiness_probe of this V1Container.
-        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
+        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/pod-states.md#container-probes
 
         :return: The readiness_probe of this V1Container.
         :rtype: V1Probe
@@ -330,7 +332,7 @@ class V1Container(object):
     def readiness_probe(self, readiness_probe):
         """
         Sets the readiness_probe of this V1Container.
-        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
+        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/pod-states.md#container-probes
 
         :param readiness_probe: The readiness_probe of this V1Container.
         :type: V1Probe
@@ -385,7 +387,7 @@ class V1Container(object):
     def image_pull_policy(self):
         """
         Gets the image_pull_policy of this V1Container.
-        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md#updating-images
+        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/images.md#updating-images
 
         :return: The image_pull_policy of this V1Container.
         :rtype: str
@@ -396,7 +398,7 @@ class V1Container(object):
     def image_pull_policy(self, image_pull_policy):
         """
         Sets the image_pull_policy of this V1Container.
-        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md#updating-images
+        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.3/docs/user-guide/images.md#updating-images
 
         :param image_pull_policy: The image_pull_policy of this V1Container.
         :type: str
@@ -407,7 +409,7 @@ class V1Container(object):
     def security_context(self):
         """
         Gets the security_context of this V1Container.
-        Security options the pod should run with. More info: http://releases.k8s.io/release-1.2/docs/design/security_context.md
+        Security options the pod should run with. More info: http://releases.k8s.io/release-1.3/docs/design/security_context.md
 
         :return: The security_context of this V1Container.
         :rtype: V1SecurityContext
@@ -418,7 +420,7 @@ class V1Container(object):
     def security_context(self, security_context):
         """
         Sets the security_context of this V1Container.
-        Security options the pod should run with. More info: http://releases.k8s.io/release-1.2/docs/design/security_context.md
+        Security options the pod should run with. More info: http://releases.k8s.io/release-1.3/docs/design/security_context.md
 
         :param security_context: The security_context of this V1Container.
         :type: V1SecurityContext
@@ -493,7 +495,7 @@ class V1Container(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -506,6 +508,12 @@ class V1Container(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -513,7 +521,7 @@ class V1Container(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -522,3 +530,16 @@ class V1Container(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

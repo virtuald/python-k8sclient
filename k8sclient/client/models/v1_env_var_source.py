@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1EnvVarSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1EnvVarSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -36,17 +38,20 @@ class V1EnvVarSource(object):
         """
         self.swagger_types = {
             'field_ref': 'V1ObjectFieldSelector',
+            'resource_field_ref': 'V1ResourceFieldSelector',
             'config_map_key_ref': 'V1ConfigMapKeySelector',
             'secret_key_ref': 'V1SecretKeySelector'
         }
 
         self.attribute_map = {
             'field_ref': 'fieldRef',
+            'resource_field_ref': 'resourceFieldRef',
             'config_map_key_ref': 'configMapKeyRef',
             'secret_key_ref': 'secretKeyRef'
         }
 
         self._field_ref = None
+        self._resource_field_ref = None
         self._config_map_key_ref = None
         self._secret_key_ref = None
 
@@ -71,6 +76,28 @@ class V1EnvVarSource(object):
         :type: V1ObjectFieldSelector
         """
         self._field_ref = field_ref
+
+    @property
+    def resource_field_ref(self):
+        """
+        Gets the resource_field_ref of this V1EnvVarSource.
+        Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+
+        :return: The resource_field_ref of this V1EnvVarSource.
+        :rtype: V1ResourceFieldSelector
+        """
+        return self._resource_field_ref
+
+    @resource_field_ref.setter
+    def resource_field_ref(self, resource_field_ref):
+        """
+        Sets the resource_field_ref of this V1EnvVarSource.
+        Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+
+        :param resource_field_ref: The resource_field_ref of this V1EnvVarSource.
+        :type: V1ResourceFieldSelector
+        """
+        self._resource_field_ref = resource_field_ref
 
     @property
     def config_map_key_ref(self):
@@ -118,7 +145,7 @@ class V1EnvVarSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +158,12 @@ class V1EnvVarSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +171,7 @@ class V1EnvVarSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +180,16 @@ class V1EnvVarSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

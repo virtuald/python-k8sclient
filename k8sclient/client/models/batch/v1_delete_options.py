@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1DeleteOptions(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1DeleteOptions - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -37,24 +39,30 @@ class V1DeleteOptions(object):
         self.swagger_types = {
             'kind': 'str',
             'api_version': 'str',
-            'grace_period_seconds': 'int'
+            'grace_period_seconds': 'int',
+            'preconditions': 'V1Preconditions',
+            'orphan_dependents': 'bool'
         }
 
         self.attribute_map = {
             'kind': 'kind',
             'api_version': 'apiVersion',
-            'grace_period_seconds': 'gracePeriodSeconds'
+            'grace_period_seconds': 'gracePeriodSeconds',
+            'preconditions': 'preconditions',
+            'orphan_dependents': 'orphanDependents'
         }
 
         self._kind = None
         self._api_version = None
         self._grace_period_seconds = None
+        self._preconditions = None
+        self._orphan_dependents = None
 
     @property
     def kind(self):
         """
         Gets the kind of this V1DeleteOptions.
-        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.3/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1DeleteOptions.
         :rtype: str
@@ -65,7 +73,7 @@ class V1DeleteOptions(object):
     def kind(self, kind):
         """
         Sets the kind of this V1DeleteOptions.
-        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.3/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1DeleteOptions.
         :type: str
@@ -76,7 +84,7 @@ class V1DeleteOptions(object):
     def api_version(self):
         """
         Gets the api_version of this V1DeleteOptions.
-        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.3/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1DeleteOptions.
         :rtype: str
@@ -87,7 +95,7 @@ class V1DeleteOptions(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1DeleteOptions.
-        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.3/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1DeleteOptions.
         :type: str
@@ -116,9 +124,53 @@ class V1DeleteOptions(object):
         """
         self._grace_period_seconds = grace_period_seconds
 
+    @property
+    def preconditions(self):
+        """
+        Gets the preconditions of this V1DeleteOptions.
+        Must be fulfilled before a deletion is carried out. If not possible, a 409 Conflict status will be returned.
+
+        :return: The preconditions of this V1DeleteOptions.
+        :rtype: V1Preconditions
+        """
+        return self._preconditions
+
+    @preconditions.setter
+    def preconditions(self, preconditions):
+        """
+        Sets the preconditions of this V1DeleteOptions.
+        Must be fulfilled before a deletion is carried out. If not possible, a 409 Conflict status will be returned.
+
+        :param preconditions: The preconditions of this V1DeleteOptions.
+        :type: V1Preconditions
+        """
+        self._preconditions = preconditions
+
+    @property
+    def orphan_dependents(self):
+        """
+        Gets the orphan_dependents of this V1DeleteOptions.
+        Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list.
+
+        :return: The orphan_dependents of this V1DeleteOptions.
+        :rtype: bool
+        """
+        return self._orphan_dependents
+
+    @orphan_dependents.setter
+    def orphan_dependents(self, orphan_dependents):
+        """
+        Sets the orphan_dependents of this V1DeleteOptions.
+        Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list.
+
+        :param orphan_dependents: The orphan_dependents of this V1DeleteOptions.
+        :type: bool
+        """
+        self._orphan_dependents = orphan_dependents
+
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +183,12 @@ class V1DeleteOptions(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +196,7 @@ class V1DeleteOptions(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +205,16 @@ class V1DeleteOptions(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

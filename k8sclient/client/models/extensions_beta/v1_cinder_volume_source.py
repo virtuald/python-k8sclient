@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1CinderVolumeSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1CinderVolumeSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -54,7 +56,7 @@ class V1CinderVolumeSource(object):
     def volume_id(self):
         """
         Gets the volume_id of this V1CinderVolumeSource.
-        volume id used to identify the volume in cinder More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        volume id used to identify the volume in cinder More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :return: The volume_id of this V1CinderVolumeSource.
         :rtype: str
@@ -65,7 +67,7 @@ class V1CinderVolumeSource(object):
     def volume_id(self, volume_id):
         """
         Sets the volume_id of this V1CinderVolumeSource.
-        volume id used to identify the volume in cinder More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        volume id used to identify the volume in cinder More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :param volume_id: The volume_id of this V1CinderVolumeSource.
         :type: str
@@ -76,7 +78,7 @@ class V1CinderVolumeSource(object):
     def fs_type(self):
         """
         Gets the fs_type of this V1CinderVolumeSource.
-        Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :return: The fs_type of this V1CinderVolumeSource.
         :rtype: str
@@ -87,7 +89,7 @@ class V1CinderVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1CinderVolumeSource.
-        Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :param fs_type: The fs_type of this V1CinderVolumeSource.
         :type: str
@@ -98,7 +100,7 @@ class V1CinderVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1CinderVolumeSource.
-        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :return: The read_only of this V1CinderVolumeSource.
         :rtype: bool
@@ -109,7 +111,7 @@ class V1CinderVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1CinderVolumeSource.
-        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :param read_only: The read_only of this V1CinderVolumeSource.
         :type: bool
@@ -118,7 +120,7 @@ class V1CinderVolumeSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +133,12 @@ class V1CinderVolumeSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +146,7 @@ class V1CinderVolumeSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +155,16 @@ class V1CinderVolumeSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

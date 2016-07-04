@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1CephFSVolumeSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1CephFSVolumeSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -63,7 +65,7 @@ class V1CephFSVolumeSource(object):
     def monitors(self):
         """
         Gets the monitors of this V1CephFSVolumeSource.
-        Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :return: The monitors of this V1CephFSVolumeSource.
         :rtype: list[str]
@@ -74,7 +76,7 @@ class V1CephFSVolumeSource(object):
     def monitors(self, monitors):
         """
         Sets the monitors of this V1CephFSVolumeSource.
-        Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Required: Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :param monitors: The monitors of this V1CephFSVolumeSource.
         :type: list[str]
@@ -107,7 +109,7 @@ class V1CephFSVolumeSource(object):
     def user(self):
         """
         Gets the user of this V1CephFSVolumeSource.
-        Optional: User is the rados user name, default is admin More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: User is the rados user name, default is admin More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :return: The user of this V1CephFSVolumeSource.
         :rtype: str
@@ -118,7 +120,7 @@ class V1CephFSVolumeSource(object):
     def user(self, user):
         """
         Sets the user of this V1CephFSVolumeSource.
-        Optional: User is the rados user name, default is admin More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: User is the rados user name, default is admin More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :param user: The user of this V1CephFSVolumeSource.
         :type: str
@@ -129,7 +131,7 @@ class V1CephFSVolumeSource(object):
     def secret_file(self):
         """
         Gets the secret_file of this V1CephFSVolumeSource.
-        Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :return: The secret_file of this V1CephFSVolumeSource.
         :rtype: str
@@ -140,7 +142,7 @@ class V1CephFSVolumeSource(object):
     def secret_file(self, secret_file):
         """
         Sets the secret_file of this V1CephFSVolumeSource.
-        Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :param secret_file: The secret_file of this V1CephFSVolumeSource.
         :type: str
@@ -151,7 +153,7 @@ class V1CephFSVolumeSource(object):
     def secret_ref(self):
         """
         Gets the secret_ref of this V1CephFSVolumeSource.
-        Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :return: The secret_ref of this V1CephFSVolumeSource.
         :rtype: V1LocalObjectReference
@@ -162,7 +164,7 @@ class V1CephFSVolumeSource(object):
     def secret_ref(self, secret_ref):
         """
         Sets the secret_ref of this V1CephFSVolumeSource.
-        Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :param secret_ref: The secret_ref of this V1CephFSVolumeSource.
         :type: V1LocalObjectReference
@@ -173,7 +175,7 @@ class V1CephFSVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1CephFSVolumeSource.
-        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :return: The read_only of this V1CephFSVolumeSource.
         :rtype: bool
@@ -184,7 +186,7 @@ class V1CephFSVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1CephFSVolumeSource.
-        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.2/examples/cephfs/README.md#how-to-use-it
+        Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: http://releases.k8s.io/release-1.3/examples/cephfs/README.md#how-to-use-it
 
         :param read_only: The read_only of this V1CephFSVolumeSource.
         :type: bool
@@ -193,7 +195,7 @@ class V1CephFSVolumeSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -206,6 +208,12 @@ class V1CephFSVolumeSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -213,7 +221,7 @@ class V1CephFSVolumeSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -222,3 +230,16 @@ class V1CephFSVolumeSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

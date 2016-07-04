@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1PersistentVolumeSpec(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1PersistentVolumeSpec - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -49,6 +51,7 @@ class V1PersistentVolumeSpec(object):
             'flocker': 'V1FlockerVolumeSource',
             'flex_volume': 'V1FlexVolumeSource',
             'azure_file': 'V1AzureFileVolumeSource',
+            'vsphere_volume': 'V1VsphereVirtualDiskVolumeSource',
             'access_modes': 'list[V1PersistentVolumeAccessMode]',
             'claim_ref': 'V1ObjectReference',
             'persistent_volume_reclaim_policy': 'str'
@@ -69,6 +72,7 @@ class V1PersistentVolumeSpec(object):
             'flocker': 'flocker',
             'flex_volume': 'flexVolume',
             'azure_file': 'azureFile',
+            'vsphere_volume': 'vsphereVolume',
             'access_modes': 'accessModes',
             'claim_ref': 'claimRef',
             'persistent_volume_reclaim_policy': 'persistentVolumeReclaimPolicy'
@@ -88,6 +92,7 @@ class V1PersistentVolumeSpec(object):
         self._flocker = None
         self._flex_volume = None
         self._azure_file = None
+        self._vsphere_volume = None
         self._access_modes = None
         self._claim_ref = None
         self._persistent_volume_reclaim_policy = None
@@ -96,7 +101,7 @@ class V1PersistentVolumeSpec(object):
     def capacity(self):
         """
         Gets the capacity of this V1PersistentVolumeSpec.
-        A description of the persistent volume's resources and capacity. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity
+        A description of the persistent volume's resources and capacity. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#capacity
 
         :return: The capacity of this V1PersistentVolumeSpec.
         :rtype: object
@@ -107,7 +112,7 @@ class V1PersistentVolumeSpec(object):
     def capacity(self, capacity):
         """
         Sets the capacity of this V1PersistentVolumeSpec.
-        A description of the persistent volume's resources and capacity. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity
+        A description of the persistent volume's resources and capacity. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#capacity
 
         :param capacity: The capacity of this V1PersistentVolumeSpec.
         :type: object
@@ -118,7 +123,7 @@ class V1PersistentVolumeSpec(object):
     def gce_persistent_disk(self):
         """
         Gets the gce_persistent_disk of this V1PersistentVolumeSpec.
-        GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The gce_persistent_disk of this V1PersistentVolumeSpec.
         :rtype: V1GCEPersistentDiskVolumeSource
@@ -129,7 +134,7 @@ class V1PersistentVolumeSpec(object):
     def gce_persistent_disk(self, gce_persistent_disk):
         """
         Sets the gce_persistent_disk of this V1PersistentVolumeSpec.
-        GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param gce_persistent_disk: The gce_persistent_disk of this V1PersistentVolumeSpec.
         :type: V1GCEPersistentDiskVolumeSource
@@ -140,7 +145,7 @@ class V1PersistentVolumeSpec(object):
     def aws_elastic_block_store(self):
         """
         Gets the aws_elastic_block_store of this V1PersistentVolumeSpec.
-        AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
+        AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#awselasticblockstore
 
         :return: The aws_elastic_block_store of this V1PersistentVolumeSpec.
         :rtype: V1AWSElasticBlockStoreVolumeSource
@@ -151,7 +156,7 @@ class V1PersistentVolumeSpec(object):
     def aws_elastic_block_store(self, aws_elastic_block_store):
         """
         Sets the aws_elastic_block_store of this V1PersistentVolumeSpec.
-        AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
+        AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#awselasticblockstore
 
         :param aws_elastic_block_store: The aws_elastic_block_store of this V1PersistentVolumeSpec.
         :type: V1AWSElasticBlockStoreVolumeSource
@@ -162,7 +167,7 @@ class V1PersistentVolumeSpec(object):
     def host_path(self):
         """
         Gets the host_path of this V1PersistentVolumeSpec.
-        HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#hostpath
+        HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#hostpath
 
         :return: The host_path of this V1PersistentVolumeSpec.
         :rtype: V1HostPathVolumeSource
@@ -173,7 +178,7 @@ class V1PersistentVolumeSpec(object):
     def host_path(self, host_path):
         """
         Sets the host_path of this V1PersistentVolumeSpec.
-        HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#hostpath
+        HostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#hostpath
 
         :param host_path: The host_path of this V1PersistentVolumeSpec.
         :type: V1HostPathVolumeSource
@@ -184,7 +189,7 @@ class V1PersistentVolumeSpec(object):
     def glusterfs(self):
         """
         Gets the glusterfs of this V1PersistentVolumeSpec.
-        Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md
+        Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/examples/glusterfs/README.md
 
         :return: The glusterfs of this V1PersistentVolumeSpec.
         :rtype: V1GlusterfsVolumeSource
@@ -195,7 +200,7 @@ class V1PersistentVolumeSpec(object):
     def glusterfs(self, glusterfs):
         """
         Sets the glusterfs of this V1PersistentVolumeSpec.
-        Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md
+        Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/examples/glusterfs/README.md
 
         :param glusterfs: The glusterfs of this V1PersistentVolumeSpec.
         :type: V1GlusterfsVolumeSource
@@ -206,7 +211,7 @@ class V1PersistentVolumeSpec(object):
     def nfs(self):
         """
         Gets the nfs of this V1PersistentVolumeSpec.
-        NFS represents an NFS mount on the host. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#nfs
+        NFS represents an NFS mount on the host. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#nfs
 
         :return: The nfs of this V1PersistentVolumeSpec.
         :rtype: V1NFSVolumeSource
@@ -217,7 +222,7 @@ class V1PersistentVolumeSpec(object):
     def nfs(self, nfs):
         """
         Sets the nfs of this V1PersistentVolumeSpec.
-        NFS represents an NFS mount on the host. Provisioned by an admin. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#nfs
+        NFS represents an NFS mount on the host. Provisioned by an admin. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#nfs
 
         :param nfs: The nfs of this V1PersistentVolumeSpec.
         :type: V1NFSVolumeSource
@@ -228,7 +233,7 @@ class V1PersistentVolumeSpec(object):
     def rbd(self):
         """
         Gets the rbd of this V1PersistentVolumeSpec.
-        RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md
+        RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/release-1.3/examples/rbd/README.md
 
         :return: The rbd of this V1PersistentVolumeSpec.
         :rtype: V1RBDVolumeSource
@@ -239,7 +244,7 @@ class V1PersistentVolumeSpec(object):
     def rbd(self, rbd):
         """
         Sets the rbd of this V1PersistentVolumeSpec.
-        RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/release-1.2/examples/rbd/README.md
+        RBD represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: http://releases.k8s.io/release-1.3/examples/rbd/README.md
 
         :param rbd: The rbd of this V1PersistentVolumeSpec.
         :type: V1RBDVolumeSource
@@ -272,7 +277,7 @@ class V1PersistentVolumeSpec(object):
     def cinder(self):
         """
         Gets the cinder of this V1PersistentVolumeSpec.
-        Cinder represents a cinder volume attached and mounted on kubelets host machine More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Cinder represents a cinder volume attached and mounted on kubelets host machine More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :return: The cinder of this V1PersistentVolumeSpec.
         :rtype: V1CinderVolumeSource
@@ -283,7 +288,7 @@ class V1PersistentVolumeSpec(object):
     def cinder(self, cinder):
         """
         Sets the cinder of this V1PersistentVolumeSpec.
-        Cinder represents a cinder volume attached and mounted on kubelets host machine More info: http://releases.k8s.io/release-1.2/examples/mysql-cinder-pd/README.md
+        Cinder represents a cinder volume attached and mounted on kubelets host machine More info: http://releases.k8s.io/release-1.3/examples/mysql-cinder-pd/README.md
 
         :param cinder: The cinder of this V1PersistentVolumeSpec.
         :type: V1CinderVolumeSource
@@ -401,10 +406,32 @@ class V1PersistentVolumeSpec(object):
         self._azure_file = azure_file
 
     @property
+    def vsphere_volume(self):
+        """
+        Gets the vsphere_volume of this V1PersistentVolumeSpec.
+        VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+
+        :return: The vsphere_volume of this V1PersistentVolumeSpec.
+        :rtype: V1VsphereVirtualDiskVolumeSource
+        """
+        return self._vsphere_volume
+
+    @vsphere_volume.setter
+    def vsphere_volume(self, vsphere_volume):
+        """
+        Sets the vsphere_volume of this V1PersistentVolumeSpec.
+        VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+
+        :param vsphere_volume: The vsphere_volume of this V1PersistentVolumeSpec.
+        :type: V1VsphereVirtualDiskVolumeSource
+        """
+        self._vsphere_volume = vsphere_volume
+
+    @property
     def access_modes(self):
         """
         Gets the access_modes of this V1PersistentVolumeSpec.
-        AccessModes contains all ways the volume can be mounted. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#access-modes
+        AccessModes contains all ways the volume can be mounted. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#access-modes
 
         :return: The access_modes of this V1PersistentVolumeSpec.
         :rtype: list[V1PersistentVolumeAccessMode]
@@ -415,7 +442,7 @@ class V1PersistentVolumeSpec(object):
     def access_modes(self, access_modes):
         """
         Sets the access_modes of this V1PersistentVolumeSpec.
-        AccessModes contains all ways the volume can be mounted. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#access-modes
+        AccessModes contains all ways the volume can be mounted. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#access-modes
 
         :param access_modes: The access_modes of this V1PersistentVolumeSpec.
         :type: list[V1PersistentVolumeAccessMode]
@@ -426,7 +453,7 @@ class V1PersistentVolumeSpec(object):
     def claim_ref(self):
         """
         Gets the claim_ref of this V1PersistentVolumeSpec.
-        ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#binding
+        ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#binding
 
         :return: The claim_ref of this V1PersistentVolumeSpec.
         :rtype: V1ObjectReference
@@ -437,7 +464,7 @@ class V1PersistentVolumeSpec(object):
     def claim_ref(self, claim_ref):
         """
         Sets the claim_ref of this V1PersistentVolumeSpec.
-        ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#binding
+        ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#binding
 
         :param claim_ref: The claim_ref of this V1PersistentVolumeSpec.
         :type: V1ObjectReference
@@ -448,7 +475,7 @@ class V1PersistentVolumeSpec(object):
     def persistent_volume_reclaim_policy(self):
         """
         Gets the persistent_volume_reclaim_policy of this V1PersistentVolumeSpec.
-        What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recyling must be supported by the volume plugin underlying this persistent volume. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#recycling-policy
+        What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recyling must be supported by the volume plugin underlying this persistent volume. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#recycling-policy
 
         :return: The persistent_volume_reclaim_policy of this V1PersistentVolumeSpec.
         :rtype: str
@@ -459,7 +486,7 @@ class V1PersistentVolumeSpec(object):
     def persistent_volume_reclaim_policy(self, persistent_volume_reclaim_policy):
         """
         Sets the persistent_volume_reclaim_policy of this V1PersistentVolumeSpec.
-        What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recyling must be supported by the volume plugin underlying this persistent volume. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#recycling-policy
+        What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recyling must be supported by the volume plugin underlying this persistent volume. More info: http://releases.k8s.io/release-1.3/docs/user-guide/persistent-volumes.md#recycling-policy
 
         :param persistent_volume_reclaim_policy: The persistent_volume_reclaim_policy of this V1PersistentVolumeSpec.
         :type: str
@@ -468,7 +495,7 @@ class V1PersistentVolumeSpec(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -481,6 +508,12 @@ class V1PersistentVolumeSpec(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -488,7 +521,7 @@ class V1PersistentVolumeSpec(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -497,3 +530,16 @@ class V1PersistentVolumeSpec(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

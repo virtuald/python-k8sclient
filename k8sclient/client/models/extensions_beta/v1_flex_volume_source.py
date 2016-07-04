@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1FlexVolumeSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1FlexVolumeSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -104,7 +106,7 @@ class V1FlexVolumeSource(object):
     def secret_ref(self):
         """
         Gets the secret_ref of this V1FlexVolumeSource.
-        Optional: SecretRef is reference to the authentication secret for User, default is empty.
+        Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
 
         :return: The secret_ref of this V1FlexVolumeSource.
         :rtype: V1LocalObjectReference
@@ -115,7 +117,7 @@ class V1FlexVolumeSource(object):
     def secret_ref(self, secret_ref):
         """
         Sets the secret_ref of this V1FlexVolumeSource.
-        Optional: SecretRef is reference to the authentication secret for User, default is empty.
+        Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
 
         :param secret_ref: The secret_ref of this V1FlexVolumeSource.
         :type: V1LocalObjectReference
@@ -148,7 +150,7 @@ class V1FlexVolumeSource(object):
     def options(self):
         """
         Gets the options of this V1FlexVolumeSource.
-        Optional: Extra command options if object.
+        Optional: Extra command options if any.
 
         :return: The options of this V1FlexVolumeSource.
         :rtype: object
@@ -159,7 +161,7 @@ class V1FlexVolumeSource(object):
     def options(self, options):
         """
         Sets the options of this V1FlexVolumeSource.
-        Optional: Extra command options if object.
+        Optional: Extra command options if any.
 
         :param options: The options of this V1FlexVolumeSource.
         :type: object
@@ -168,7 +170,7 @@ class V1FlexVolumeSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -181,6 +183,12 @@ class V1FlexVolumeSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -188,7 +196,7 @@ class V1FlexVolumeSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -197,3 +205,16 @@ class V1FlexVolumeSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

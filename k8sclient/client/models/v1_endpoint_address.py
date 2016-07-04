@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1EndpointAddress(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1EndpointAddress - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -36,22 +38,25 @@ class V1EndpointAddress(object):
         """
         self.swagger_types = {
             'ip': 'str',
+            'hostname': 'str',
             'target_ref': 'V1ObjectReference'
         }
 
         self.attribute_map = {
             'ip': 'ip',
+            'hostname': 'hostname',
             'target_ref': 'targetRef'
         }
 
         self._ip = None
+        self._hostname = None
         self._target_ref = None
 
     @property
     def ip(self):
         """
         Gets the ip of this V1EndpointAddress.
-        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
+        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24). IPv6 is also accepted but not fully supported on all platforms. Also, certain kubernetes components, like kube-proxy, are not IPv6 ready.
 
         :return: The ip of this V1EndpointAddress.
         :rtype: str
@@ -62,12 +67,34 @@ class V1EndpointAddress(object):
     def ip(self, ip):
         """
         Sets the ip of this V1EndpointAddress.
-        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
+        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24). IPv6 is also accepted but not fully supported on all platforms. Also, certain kubernetes components, like kube-proxy, are not IPv6 ready.
 
         :param ip: The ip of this V1EndpointAddress.
         :type: str
         """
         self._ip = ip
+
+    @property
+    def hostname(self):
+        """
+        Gets the hostname of this V1EndpointAddress.
+        The Hostname of this endpoint
+
+        :return: The hostname of this V1EndpointAddress.
+        :rtype: str
+        """
+        return self._hostname
+
+    @hostname.setter
+    def hostname(self, hostname):
+        """
+        Sets the hostname of this V1EndpointAddress.
+        The Hostname of this endpoint
+
+        :param hostname: The hostname of this V1EndpointAddress.
+        :type: str
+        """
+        self._hostname = hostname
 
     @property
     def target_ref(self):
@@ -93,7 +120,7 @@ class V1EndpointAddress(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -106,6 +133,12 @@ class V1EndpointAddress(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -113,7 +146,7 @@ class V1EndpointAddress(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -122,3 +155,16 @@ class V1EndpointAddress(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

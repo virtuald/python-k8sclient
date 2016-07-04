@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1GCEPersistentDiskVolumeSource - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -57,7 +59,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def pd_name(self):
         """
         Gets the pd_name of this V1GCEPersistentDiskVolumeSource.
-        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The pd_name of this V1GCEPersistentDiskVolumeSource.
         :rtype: str
@@ -68,7 +70,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def pd_name(self, pd_name):
         """
         Sets the pd_name of this V1GCEPersistentDiskVolumeSource.
-        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param pd_name: The pd_name of this V1GCEPersistentDiskVolumeSource.
         :type: str
@@ -79,7 +81,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def fs_type(self):
         """
         Gets the fs_type of this V1GCEPersistentDiskVolumeSource.
-        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The fs_type of this V1GCEPersistentDiskVolumeSource.
         :rtype: str
@@ -90,7 +92,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1GCEPersistentDiskVolumeSource.
-        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param fs_type: The fs_type of this V1GCEPersistentDiskVolumeSource.
         :type: str
@@ -101,7 +103,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def partition(self):
         """
         Gets the partition of this V1GCEPersistentDiskVolumeSource.
-        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The partition of this V1GCEPersistentDiskVolumeSource.
         :rtype: int
@@ -112,7 +114,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def partition(self, partition):
         """
         Sets the partition of this V1GCEPersistentDiskVolumeSource.
-        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param partition: The partition of this V1GCEPersistentDiskVolumeSource.
         :type: int
@@ -123,7 +125,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1GCEPersistentDiskVolumeSource.
-        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The read_only of this V1GCEPersistentDiskVolumeSource.
         :rtype: bool
@@ -134,7 +136,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1GCEPersistentDiskVolumeSource.
-        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.3/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param read_only: The read_only of this V1GCEPersistentDiskVolumeSource.
         :type: bool
@@ -143,7 +145,7 @@ class V1GCEPersistentDiskVolumeSource(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -156,6 +158,12 @@ class V1GCEPersistentDiskVolumeSource(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -163,7 +171,7 @@ class V1GCEPersistentDiskVolumeSource(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -172,3 +180,16 @@ class V1GCEPersistentDiskVolumeSource(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1ReplicationControllerSpec(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1ReplicationControllerSpec - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -54,7 +56,7 @@ class V1ReplicationControllerSpec(object):
     def replicas(self):
         """
         Gets the replicas of this V1ReplicationControllerSpec.
-        Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller
+        Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: http://releases.k8s.io/release-1.3/docs/user-guide/replication-controller.md#what-is-a-replication-controller
 
         :return: The replicas of this V1ReplicationControllerSpec.
         :rtype: int
@@ -65,7 +67,7 @@ class V1ReplicationControllerSpec(object):
     def replicas(self, replicas):
         """
         Sets the replicas of this V1ReplicationControllerSpec.
-        Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller
+        Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: http://releases.k8s.io/release-1.3/docs/user-guide/replication-controller.md#what-is-a-replication-controller
 
         :param replicas: The replicas of this V1ReplicationControllerSpec.
         :type: int
@@ -76,7 +78,7 @@ class V1ReplicationControllerSpec(object):
     def selector(self):
         """
         Gets the selector of this V1ReplicationControllerSpec.
-        Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://releases.k8s.io/release-1.2/docs/user-guide/labels.md#label-selectors
+        Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://releases.k8s.io/release-1.3/docs/user-guide/labels.md#label-selectors
 
         :return: The selector of this V1ReplicationControllerSpec.
         :rtype: object
@@ -87,7 +89,7 @@ class V1ReplicationControllerSpec(object):
     def selector(self, selector):
         """
         Sets the selector of this V1ReplicationControllerSpec.
-        Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://releases.k8s.io/release-1.2/docs/user-guide/labels.md#label-selectors
+        Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://releases.k8s.io/release-1.3/docs/user-guide/labels.md#label-selectors
 
         :param selector: The selector of this V1ReplicationControllerSpec.
         :type: object
@@ -98,7 +100,7 @@ class V1ReplicationControllerSpec(object):
     def template(self):
         """
         Gets the template of this V1ReplicationControllerSpec.
-        Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#pod-template
+        Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: http://releases.k8s.io/release-1.3/docs/user-guide/replication-controller.md#pod-template
 
         :return: The template of this V1ReplicationControllerSpec.
         :rtype: V1PodTemplateSpec
@@ -109,7 +111,7 @@ class V1ReplicationControllerSpec(object):
     def template(self, template):
         """
         Sets the template of this V1ReplicationControllerSpec.
-        Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#pod-template
+        Template is the object that describes the pod that will be created if insufficient replicas are detected. This takes precedence over a TemplateRef. More info: http://releases.k8s.io/release-1.3/docs/user-guide/replication-controller.md#pod-template
 
         :param template: The template of this V1ReplicationControllerSpec.
         :type: V1PodTemplateSpec
@@ -118,7 +120,7 @@ class V1ReplicationControllerSpec(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +133,12 @@ class V1ReplicationControllerSpec(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +146,7 @@ class V1ReplicationControllerSpec(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +155,16 @@ class V1ReplicationControllerSpec(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+

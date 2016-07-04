@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Copyright 2015 SmartBear Software
+Copyright 2016 SmartBear Software
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ Copyright 2015 SmartBear Software
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+    Ref: https://github.com/swagger-api/swagger-codegen
 """
 
 from pprint import pformat
@@ -27,7 +29,7 @@ class V1beta1DaemonSetStatus(object):
     """
     def __init__(self):
         """
-        Swagger model
+        V1beta1DaemonSetStatus - a model defined in Swagger
 
         :param dict swaggerTypes: The key is attribute name
                                   and the value is attribute type.
@@ -54,7 +56,7 @@ class V1beta1DaemonSetStatus(object):
     def current_number_scheduled(self):
         """
         Gets the current_number_scheduled of this V1beta1DaemonSetStatus.
-        CurrentNumberScheduled is the number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        CurrentNumberScheduled is the number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :return: The current_number_scheduled of this V1beta1DaemonSetStatus.
         :rtype: int
@@ -65,7 +67,7 @@ class V1beta1DaemonSetStatus(object):
     def current_number_scheduled(self, current_number_scheduled):
         """
         Sets the current_number_scheduled of this V1beta1DaemonSetStatus.
-        CurrentNumberScheduled is the number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        CurrentNumberScheduled is the number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :param current_number_scheduled: The current_number_scheduled of this V1beta1DaemonSetStatus.
         :type: int
@@ -76,7 +78,7 @@ class V1beta1DaemonSetStatus(object):
     def number_misscheduled(self):
         """
         Gets the number_misscheduled of this V1beta1DaemonSetStatus.
-        NumberMisscheduled is the number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        NumberMisscheduled is the number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :return: The number_misscheduled of this V1beta1DaemonSetStatus.
         :rtype: int
@@ -87,7 +89,7 @@ class V1beta1DaemonSetStatus(object):
     def number_misscheduled(self, number_misscheduled):
         """
         Sets the number_misscheduled of this V1beta1DaemonSetStatus.
-        NumberMisscheduled is the number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        NumberMisscheduled is the number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :param number_misscheduled: The number_misscheduled of this V1beta1DaemonSetStatus.
         :type: int
@@ -98,7 +100,7 @@ class V1beta1DaemonSetStatus(object):
     def desired_number_scheduled(self):
         """
         Gets the desired_number_scheduled of this V1beta1DaemonSetStatus.
-        DesiredNumberScheduled is the total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        DesiredNumberScheduled is the total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :return: The desired_number_scheduled of this V1beta1DaemonSetStatus.
         :rtype: int
@@ -109,7 +111,7 @@ class V1beta1DaemonSetStatus(object):
     def desired_number_scheduled(self, desired_number_scheduled):
         """
         Sets the desired_number_scheduled of this V1beta1DaemonSetStatus.
-        DesiredNumberScheduled is the total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/release-1.2/docs/admin/daemons.md
+        DesiredNumberScheduled is the total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: http://releases.k8s.io/release-1.3/docs/admin/daemons.md
 
         :param desired_number_scheduled: The desired_number_scheduled of this V1beta1DaemonSetStatus.
         :type: int
@@ -118,7 +120,7 @@ class V1beta1DaemonSetStatus(object):
 
     def to_dict(self):
         """
-        Return model properties dict
+        Returns the model properties as a dict
         """
         result = {}
 
@@ -131,6 +133,12 @@ class V1beta1DaemonSetStatus(object):
                 ))
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
+            elif isinstance(value, dict):
+                result[attr] = dict(map(
+                    lambda item: (item[0], item[1].to_dict())
+                    if hasattr(item[1], "to_dict") else item,
+                    value.items()
+                ))
             else:
                 result[attr] = value
 
@@ -138,7 +146,7 @@ class V1beta1DaemonSetStatus(object):
 
     def to_str(self):
         """
-        Return model properties str
+        Returns the string representation of the model
         """
         return pformat(self.to_dict())
 
@@ -147,3 +155,16 @@ class V1beta1DaemonSetStatus(object):
         For `print` and `pprint`
         """
         return self.to_str()
+
+    def __eq__(self, other):
+        """
+        Returns true if both objects are equal
+        """
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        """
+        Returns true if both objects are not equal
+        """
+        return not self == other
+
